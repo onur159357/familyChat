@@ -1,0 +1,39 @@
+<h1>REGISTER</h1>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form action="/user/register" method="post">
+            <div id="register-form">
+                <ul>
+                    {{#if error}}
+                        <li>
+                            <label class="alert-error"> {{error}} </label>
+                        </li>
+                    {{/if}}
+
+                    {{#if userName}}
+                        <li>
+                            <label class="alert-success">
+                                Hoş Geldin {{userName}}
+                                <a href="/user/login">Giriş yapmak için tıkla</a>
+                            </label>
+                            
+                        </li>
+                    {{/if}}
+                    <li>
+                        <label for="user-name">Kullanıcı Adı</label>
+                        <input type="text" name="userName" id="user-name">
+                    </li>
+                    <li> 
+                        <label for="password">Şifre</label>
+                        <input type="password" name="password" id="password"> 
+                    </li>
+                    <li> 
+                        <button type="submit" id='form-action' class="btn">Kaydet</button> 
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>

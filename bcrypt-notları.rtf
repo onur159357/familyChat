@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1254\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 AndaleMono;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Oblique;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red245\green245\blue245;\red14\green110\blue109;
+\red0\green0\blue0;\red133\green0\blue2;\red26\green26\blue26;\red135\green136\blue117;\red0\green0\blue255;
+\red255\green255\blue255;\red0\green0\blue109;\red32\green108\blue135;\red15\green112\blue1;\red101\green76\blue29;
+\red15\green112\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c96863\c96863\c96863;\cssrgb\c0\c50196\c50196;
+\cssrgb\c0\c0\c0;\cssrgb\c60000\c0\c0;\cssrgb\c13333\c13333\c13333;\cssrgb\c60000\c60000\c53333;\cssrgb\c0\c0\c100000;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c6275\c50196;\cssrgb\c14902\c49804\c60000;\cssrgb\c0\c50196\c0;\cssrgb\c47451\c36863\c14902;
+\cssrgb\c0\c50196\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20880\viewh9960\viewkind0
+\deftab720
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u350 ifreleme\
+npm install bcrypt \'97save
+\f1\fs32 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs24 \cf4 \strokec4 bcrypt\cf5 \strokec5 .\cf4 \strokec4 hash\cf5 \strokec5 (\uc0\u351 ifre,\'a0\u351 ifrelemeAral\u305 \u287 \u305 \'9710\'96).\cf6 \strokec6 then\cf5 \strokec5 (\cf7 \strokec7 function\cf5 \strokec5 (\cf4 \strokec4 hash\cf5 \strokec5 )\'a0\{\cb1 \
+\cb3 \'a0\'a0\'a0\'a0
+\f2\i \cf8 \strokec8 //\uc0\u351 ifrek\u305 sm\u305 na hash i ekle ve database yaz\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f3\i0 \cf9 \cb10 \strokec9 	const\cf5 \strokec5  \cf11 \strokec11 userSchema\cf5 \strokec5  = \cf9 \strokec9 new\cf5 \strokec5  \cf12 \strokec12 UserSchema\cf5 \strokec5 (\{\cb1 \
+\cb10       \cf11 \strokec11 userName\cf5 \strokec5 ,\cb1 \
+\cb10       \cf11 \strokec11 password :hash\cf5 \cb1 \strokec5 \
+\
+\cb10     \})\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f1 \cf5 \
+\cb3 \});
+\fs32 \cb1 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f3\fs24 \cf13 \cb10 \strokec13 //bcrypt ile \uc0\u351 ifreyi \'e7\'f6z\'fcp kar\u351 \u305 la\u351 t\u305 r\u305 yoruz\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf11 \cb10 \strokec11 bcrypt\cf5 \strokec5 .\cf14 \strokec14 compare\cf5 \strokec5 (\cf15 \cb10 \outl0\strokewidth0 kullan\uc0\u305 c\u305 n\u305 n girdi\u287 i \u351 ifre\cf5 \cb10 \outl0\strokewidth0 \strokec5 , \cf15 \cb10 \outl0\strokewidth0 db de kay\uc0\u305 tl\u305  olan \u351 ifre\cf5 \cb10 \outl0\strokewidth0 \strokec5 ).\cf14 \strokec14 then\cf5 \strokec5 ( (\cf11 \strokec11 result\cf5 \strokec5 ) \cf9 \strokec9 =>\cf5 \strokec5  \{   \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf15 \cb10 \outl0\strokewidth0 //iki password uyu\uc0\u351 uyorsa result true uyu\u351 muyorsa false d\'f6ner\cf5 \cb1 \outl0\strokewidth0 \strokec5 \
+\cb10 \});\cb1 \
+}
