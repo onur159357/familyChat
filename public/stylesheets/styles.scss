@@ -41,7 +41,7 @@ h3 {
   display: inline-block !important;
   height: inherit !important;
   padding: 15px 20px !important;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
   font-size: 15px !important;
   letter-spacing: 0.50px !important;
   text-align: center !important;
@@ -56,7 +56,7 @@ h3 {
 	    -ms-user-select: none;
   color: $color-white !important;
   background-color: $color-blue !important;
-  border: none;
+  border: none !important;
   border: inherit !important;
   border-top-color: inherit !important;
   border-bottom-color: inherit !important;
@@ -81,6 +81,9 @@ h3 {
   &.btn-green {
     background-color: $color-green !important;
   }
+  &.btn-red {
+    background-color: $color-red !important;
+  }
   &:hover {
     background-color: $color-black !important;
   }
@@ -97,7 +100,7 @@ h3 {
 		font-size: 10px !important;
 	}
 	&.lg {
-		padding: 10px !important;
+		padding: 15px 20px !important;
 		font-size: 15px !important;
 	}
 	&.success {
@@ -105,8 +108,8 @@ h3 {
 		background-color: $color-green !important;
 	}
 	&.error {
-		color: $color-red !important;
-		background-color: $color-green !important;
+		color: $color-white !important;
+		background-color: $color-red !important;
 	}
 	&.warning {
 		color: $color-orange !important;

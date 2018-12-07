@@ -24,7 +24,7 @@ router.post('/register', function(req, res, next) {
 
     });
     
-    //user unique control and savedb
+    //user unique control and  
     userUniqueControler(req.body.userName)
       .then((data) => {
           if(data === null) {            

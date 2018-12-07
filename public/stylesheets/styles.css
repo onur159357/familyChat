@@ -33,7 +33,7 @@ h3 {
   display: inline-block !important;
   height: inherit !important;
   padding: 15px 20px !important;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
   font-size: 15px !important;
   letter-spacing: 0.50px !important;
   text-align: center !important;
@@ -48,7 +48,7 @@ h3 {
   -ms-user-select: none;
   color: #ffffff !important;
   background-color: #43cefe !important;
-  border: none;
+  border: none !important;
   border: inherit !important;
   border-top-color: inherit !important;
   border-bottom-color: inherit !important;
@@ -77,6 +77,10 @@ h3 {
   background-color: #9ac74e !important;
 }
 
+.btn.btn-red {
+  background-color: #ee3939 !important;
+}
+
 .btn:hover {
   background-color: #4d4d4d !important;
 }
@@ -95,7 +99,7 @@ h3 {
 }
 
 .icon-btn.lg {
-  padding: 10px !important;
+  padding: 15px 20px !important;
   font-size: 15px !important;
 }
 
@@ -105,8 +109,8 @@ h3 {
 }
 
 .icon-btn.error {
-  color: #ee3939 !important;
-  background-color: #9ac74e !important;
+  color: #ffffff !important;
+  background-color: #ee3939 !important;
 }
 
 .icon-btn.warning {

@@ -5,6 +5,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('express-handlebars');
 
+//ortam değişkeni hazırlıyoruz
+//google ve db baplantılarımızı burada tutacağız
+const dotenv = require('dotenv');
+dotenv.config();
+// .env içerisindeki bilgilere erişmek için process kullanıyoruz console.log(process.env.deneme);
+
 const indexRouter = require('./routes/index');
 const chatRouter = require('./routes/chat');
 const { login, register, logout } = require('./routes/users/users');
