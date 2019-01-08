@@ -1,9 +1,18 @@
 <div class="wrapper">
     {{#if userName}}
-        <h1> HOŞ GELDİN {{userName}} </h1>
-        <form action="/user/logout?token={{token}}" method="post">
-            <button type="submit">Çıkış</button>
-        </form>
+        <ul class="user-nav">
+            {{#if profilePhotoUrl}}
+            <li class="photo-img">
+                <img src="{{profilePhotoUrl}}">
+            </li>
+            {{/if}}
+            <li class="user-name">HOŞ GELDİN {{userName}}</li>
+            <li>
+                <form action="/user/logout?token={{token}}" method="post">
+                    <button type="submit">Çıkış</button>
+                </form>
+            </li>
+        </ul>        
     {{/if}}
     <div class="container-chat">
         <div class="left">

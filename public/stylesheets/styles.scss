@@ -692,3 +692,29 @@ body {
       opacity: 1;
   }
 }
+.user-nav {
+    @extend .clearfix;
+    li {
+        float: left;
+        padding: 20px;
+        &.photo-img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+            @extend .radius50;
+            img {
+                width: 100%;
+                height: inherit;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @extend .top-left-50;
+            }
+        }
+        &.user-name {
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+}

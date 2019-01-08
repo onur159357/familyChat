@@ -23,11 +23,11 @@ router.get('/google/callback', passportGoogle.authenticate(
     ),
     //Login işlemi başarılı olursa gideceği url
     (req, res) => {
-
+        console.log(req.user);
         //jwt ile yapılışı
         const payload = {
             userName : req.user.name,
-
+            profilePhotoUrl : req.user.profilePhotoUrl + '0',
           };
           //jwt kullanarak token oluşturuyoruz
           const token = jwt.sign(payload, req.app.get('api_secret_key'), { 

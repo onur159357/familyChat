@@ -16,11 +16,11 @@ h3 {
   font-size: 16px;
 }
 
-.clearfix:before {
+.clearfix:before, .user-nav:before {
   clear: both;
 }
 
-.clearfix:before, .clearfix:after {
+.clearfix:before, .user-nav:before, .clearfix:after, .user-nav:after {
   content: " ";
   visibility: hidden;
   display: block;
@@ -251,7 +251,7 @@ h3 {
   transform: translateX(-50%);
 }
 
-.top-left-50, .alert-list {
+.top-left-50, .alert-list, .user-nav li.photo-img img {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -259,7 +259,7 @@ h3 {
   -ms-transform: translate(-50%, -50%);
 }
 
-.radius50, .btn-close {
+.radius50, .btn-close, .user-nav li.photo-img {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -773,4 +773,29 @@ body {
     margin-right: 0;
     opacity: 1;
   }
+}
+
+.user-nav li {
+  float: left;
+  padding: 20px;
+}
+
+.user-nav li.photo-img {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.user-nav li.photo-img img {
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.user-nav li.user-name {
+  font-size: 20px;
+  color: #fff;
 }
