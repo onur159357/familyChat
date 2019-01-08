@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
 const logger = require('morgan');
 const hbs = require('express-handlebars');
 
@@ -14,6 +15,7 @@ dotenv.config();
 const indexRouter = require('./routes/index');
 const chatRouter = require('./routes/chat');
 const { login, register, logout } = require('./routes/users/users');
+const googleLogin = require('./routes/auth');
 
 const app = express();
 
@@ -56,11 +58,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize())
+
 app.use('/', indexRouter);
 app.use('/chat', verifyToken);
 app.use('/user/logout', verifyToken);
 app.use('/chat', chatRouter);
 app.use('/user', login, register, logout);
+app.use('/auth', googleLogin);
 
 
 // catch 404 and forward to error handler
