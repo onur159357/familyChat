@@ -2,16 +2,18 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const passport = require('passport');
 const logger = require('morgan');
 const hbs = require('express-handlebars');
 
-//ortam değişkeni hazırlıyoruz
-//google ve db baplantılarımızı burada tutacağız
+const passport = require('passport');
+const session = require('express-session');
+const redisStore = require('./helper/redisStore');
 const dotenv = require('dotenv');
-dotenv.config();
-// .env içerisindeki bilgilere erişmek için process kullanıyoruz console.log(process.env.deneme);
 
+//ortam değişkeni hazırlıyoruz google ve db bağlantılarımızı burada tutacağız
+dotenv.config(); // .env içerisindeki bilgilere erişmek için process kullanıyoruz console.log(process.env.deneme);
+
+//ROUTES
 const indexRouter = require('./routes/index');
 const chatRouter = require('./routes/chat');
 const { login, register, logout } = require('./routes/users/users');
@@ -27,6 +29,7 @@ const config = require('./config');
 app.set('api_secret_key', config.api_secret_key); //jwt için api_secret_key oluşturduk.
 
 //Middleware(arakatman)
+const isAuthenticated = require('./middleware/isAuthenticated');
 const verifyToken = require('./middleware/verify-token');
 //app.use('/api', verifyToken); //apinin altındaki bütün url ler verifyToken dan geçmeden çalışmayacak
 //api ile yollar token yollamanın 3 farklı yolu var (143 ders 6. dk dan başlıyor)
@@ -58,10 +61,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(passport.initialize())
+//express-session
+app.use(session({
+  store : redisStore,
+  secret: process.env.SESSION_SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  // https li bağlantılarda secure: true kullanılabilir
+  cookie: {maxAge : 360000 }
+}))
+
+//passportjs
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/chat', verifyToken);
+//app.use('/chat', verifyToken);
+app.use('/chat', isAuthenticated);
 app.use('/user/logout', verifyToken);
 app.use('/chat', chatRouter);
 app.use('/user', login, register, logout);

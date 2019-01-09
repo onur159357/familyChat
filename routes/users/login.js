@@ -60,6 +60,11 @@ router.post('/login', (req, res, next) => {
     }
 
   })
+  //session da yönlendirme işlemi
+  // if(!req.user)
+  //   res.redirect('/user/login')
+  // else
+  //   res.redirect('/chat');
 
 })
 

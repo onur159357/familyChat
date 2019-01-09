@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passportGoogle = require('../auth/google');
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 
 //google butonuna basıldığı anda çalışacak kısım
 router.get('/google', passportGoogle.authenticate (
@@ -23,18 +23,18 @@ router.get('/google/callback', passportGoogle.authenticate(
     ),
     //Login işlemi başarılı olursa gideceği url
     (req, res) => {
-        console.log(req.user);
+        res.redirect('/chat')
         //jwt ile yapılışı
-        const payload = {
-            userName : req.user.name,
-            profilePhotoUrl : req.user.profilePhotoUrl + '0',
-          };
-          //jwt kullanarak token oluşturuyoruz
-          const token = jwt.sign(payload, req.app.get('api_secret_key'), { 
-            expiresIn : 3600, //saniye türünden. 1 saat geçerli
+            // const payload = {
+            //     userName : req.user.name,
+            //     profilePhotoUrl : req.user.profilePhotoUrl + '0',
+            //   };
+            //   //jwt kullanarak token oluşturuyoruz
+            //   const token = jwt.sign(payload, req.app.get('api_secret_key'), { 
+            //     expiresIn : 3600, //saniye türünden. 1 saat geçerli
 
-          });
-          res.redirect(`http://localhost:3000/chat?token=${token}`);
+            //   });
+            //   res.redirect(`http://localhost:3000/chat?token=${token}`);
         
         
     }

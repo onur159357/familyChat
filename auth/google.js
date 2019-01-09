@@ -1,9 +1,8 @@
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const GoogleStrategy = require('passport-google-oauth20');
 
 //models
 const UserSchema = require('../model/User');
-
 
 passport.use(
     new GoogleStrategy({
@@ -14,7 +13,7 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
         const data = profile._json;
 
-        //Unique kontrolü yaparak db ye kaydetmemizi sağlıyor //model içinde User.js
+        //Unique kontrolü yaparak db ye kaydetmemizi sağlıyor //model ve paket için User.js
         UserSchema.findOrCreate({ 
             'userName': profile.id 
         },{
@@ -24,6 +23,7 @@ passport.use(
             profilePhotoUrl : data.image.url
 
         }, (err, userName) => {
+            //işlem tamamlandığında done dönüyoruz passport js
             return done(err, userName);
 
         });
